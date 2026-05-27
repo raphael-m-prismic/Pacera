@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
 import { Header } from "@/components/header/Header";
+import { Footer } from "@/components/footer/Footer";
 
 
 const poppins = Poppins({
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className="font-sans">
         <Header />
         <main className="pt-20 xl:pt-28">{children}</main>
+        <Footer />
       </body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>

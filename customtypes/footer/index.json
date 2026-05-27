@@ -1,0 +1,123 @@
+{
+  "format": "custom",
+  "id": "footer",
+  "label": "Footer",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "columns": {
+        "type": "Group",
+        "config": {
+          "label": "Columns",
+          "fields": {
+            "title": {
+              "type": "Text",
+              "config": {
+                "label": "Title",
+                "placeholder": "e.g. Products"
+              }
+            },
+            "links": {
+              "type": "Link",
+              "config": {
+                "label": "Links",
+                "select": null,
+                "allowText": true,
+                "repeat": true,
+                "allowTargetBlank": true,
+                "variants": []
+              }
+            }
+          }
+        }
+      },
+      "careers_title": {
+        "type": "Text",
+        "config": {
+          "label": "Careers title",
+          "placeholder": "CAREERS"
+        }
+      },
+      "careers_text": {
+        "type": "Text",
+        "config": {
+          "label": "Careers text",
+          "placeholder": "Find your next role with us."
+        }
+      },
+      "careers_link": {
+        "type": "Link",
+        "config": {
+          "label": "Careers link",
+          "select": null,
+          "allowText": true,
+          "repeat": false,
+          "allowTargetBlank": true,
+          "variants": []
+        }
+      },
+      "socials": {
+        "type": "Group",
+        "config": {
+          "label": "Socials",
+          "fields": {
+            "platform": {
+              "type": "Select",
+              "config": {
+                "label": "Platform",
+                "placeholder": "Select a platform",
+                "options": [
+                  "linkedin",
+                  "youtube",
+                  "instagram",
+                  "twitter",
+                  "facebook",
+                  "tiktok",
+                  "github"
+                ]
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "select": null,
+                "allowText": false,
+                "repeat": false,
+                "allowTargetBlank": true,
+                "variants": []
+              }
+            }
+          }
+        }
+      },
+      "bottom_links": {
+        "type": "Link",
+        "config": {
+          "label": "Bottom links",
+          "select": null,
+          "allowText": true,
+          "repeat": true,
+          "allowTargetBlank": true,
+          "variants": []
+        }
+      },
+      "copyright": {
+        "type": "Text",
+        "config": {
+          "label": "Copyright",
+          "placeholder": "© 2026 Pacera"
+        }
+      }
+    }
+  }
+}

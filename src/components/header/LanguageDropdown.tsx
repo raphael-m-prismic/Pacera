@@ -2,7 +2,7 @@ export function LanguageDropdown() {
   return (
     <button
       type="button"
-      className="flex items-center gap-2 text-(--brand-text) font-medium"
+      className="flex items-center gap-2 text-[#26262c] font-medium"
     >
       <span aria-hidden="true">🇬🇧</span>
       <span>EN</span>
