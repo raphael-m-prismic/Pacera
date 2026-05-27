@@ -1,0 +1,66 @@
+{
+  "id": "contact_form",
+  "type": "SharedSlice",
+  "name": "ContactForm",
+  "description": "Contact form section with trust signals and a dynamic form picked from the form registry",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "trust_label": {
+          "type": "Text",
+          "config": {
+            "label": "Trust label",
+            "placeholder": "Trusted by 700+ leading organisations"
+          }
+        },
+        "companies": {
+          "type": "Group",
+          "config": {
+            "label": "Companies",
+            "fields": {
+              "logo": {
+                "type": "Image",
+                "config": {
+                  "label": "Logo",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "form_id": {
+          "type": "Text",
+          "config": {
+            "label": "Form ID",
+            "placeholder": "contact-form"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

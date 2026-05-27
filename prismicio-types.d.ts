@@ -161,7 +161,11 @@ export type HeaderDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = ProductsSlice | CardsSlice | HeroSlice;
+type PageDocumentDataSlicesSlice =
+  | ProductsSlice
+  | CardsSlice
+  | HeroSlice
+  | ContactFormSlice;
 
 /**
  * Content for Page documents
@@ -321,6 +325,108 @@ type CardsSliceVariation = CardsSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type CardsSlice = prismic.SharedSlice<"cards", CardsSliceVariation>;
+
+/**
+ * Item in *ContactForm → Default → Primary → Companies*
+ */
+export interface ContactFormSliceDefaultPrimaryCompaniesItem {
+  /**
+   * Logo field in *ContactForm → Default → Primary → Companies*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form.default.primary.companies[].logo
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  logo: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *ContactForm → Default → Primary*
+ */
+export interface ContactFormSliceDefaultPrimary {
+  /**
+   * Title field in *ContactForm → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *ContactForm → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Trust label field in *ContactForm → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Trusted by 700+ leading organisations
+   * - **API ID Path**: contact_form.default.primary.trust_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  trust_label: prismic.KeyTextField;
+
+  /**
+   * Companies field in *ContactForm → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form.default.primary.companies[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  companies: prismic.GroupField<
+    Simplify<ContactFormSliceDefaultPrimaryCompaniesItem>
+  >;
+
+  /**
+   * Form ID field in *ContactForm → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: contact-form
+   * - **API ID Path**: contact_form.default.primary.form_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  form_id: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ContactForm Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactFormSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactFormSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ContactForm*
+ */
+type ContactFormSliceVariation = ContactFormSliceDefault;
+
+/**
+ * ContactForm Shared Slice
+ *
+ * - **API ID**: `contact_form`
+ * - **Description**: Contact form section with trust signals and a dynamic form picked from the form registry
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactFormSlice = prismic.SharedSlice<
+  "contact_form",
+  ContactFormSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -643,6 +749,11 @@ declare module "@prismicio/client" {
       CardsSliceDefaultPrimary,
       CardsSliceVariation,
       CardsSliceDefault,
+      ContactFormSlice,
+      ContactFormSliceDefaultPrimaryCompaniesItem,
+      ContactFormSliceDefaultPrimary,
+      ContactFormSliceVariation,
+      ContactFormSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceImageLeftPrimary,
