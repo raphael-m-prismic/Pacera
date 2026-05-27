@@ -161,7 +161,7 @@ export type HeaderDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = HeroSlice;
+type PageDocumentDataSlicesSlice = CardsSlice | HeroSlice;
 
 /**
  * Content for Page documents
@@ -234,6 +234,93 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 export type AllDocumentTypes = HeaderDocument | PageDocument;
+
+/**
+ * Item in *Cards → Default → Primary → Cards*
+ */
+export interface CardsSliceDefaultPrimaryCardsItem {
+  /**
+   * Title field in *Cards → Default → Primary → Cards*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.cards[].title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *Cards → Default → Primary → Cards*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.cards[].text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Cards → Default → Primary*
+ */
+export interface CardsSliceDefaultPrimary {
+  /**
+   * Title field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Cards field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.cards[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  cards: prismic.GroupField<Simplify<CardsSliceDefaultPrimaryCardsItem>>;
+}
+
+/**
+ * Default variation for Cards Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CardsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CardsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Cards*
+ */
+type CardsSliceVariation = CardsSliceDefault;
+
+/**
+ * Cards Shared Slice
+ *
+ * - **API ID**: `cards`
+ * - **Description**: Cards
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CardsSlice = prismic.SharedSlice<"cards", CardsSliceVariation>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -429,6 +516,11 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      CardsSlice,
+      CardsSliceDefaultPrimaryCardsItem,
+      CardsSliceDefaultPrimary,
+      CardsSliceVariation,
+      CardsSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceImageLeftPrimary,

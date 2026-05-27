@@ -4,7 +4,7 @@
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
 
   --brand-primary: #7c2ae8;
-  --brand-text: #1a1a1a;
+  --brand-text: #ffffff;
   --brand-bg-dark: #0a0518;
   --gradient-top: linear-gradient(to right, #2dd4bf, #a855f7, #d946ef);
 }

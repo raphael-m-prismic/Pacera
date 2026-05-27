@@ -17,7 +17,7 @@ export function HeaderDesktopNav({ navigationLinks, ctas }: Props) {
           <button
             key={i}
             type="button"
-            className="flex items-center gap-1 text-(--brand-text) hover:text-(--brand-primary) transition-colors"
+            className="flex items-center gap-1 text-[#26262c] hover:text-(--brand-primary) transition-colors"
           >
             {item.label}
             <svg

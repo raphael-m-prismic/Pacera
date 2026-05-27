@@ -25,23 +25,20 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         data-slice-variation={slice.variation}
         className="w-full bg-gradient-to-b from-black via-[#1a0a2e] to-black py-24 px-12 box-border"
       >
-        <div className="mx-auto max-w-480 grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-16 items-center">
+        <div className="mx-auto max-w-480 grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16 items-center">
           <div className="flex flex-col items-start">
             {isFilled.keyText(slice.primary.eyebrow) && (
-              <span className="inline-block bg-(--brand-primary) text-white rounded-full mb-6 px-6 py-3 text-[16px] font-medium">
+              <span className="inline-block bg-(--brand-primary) rounded-full mb-6 px-6 py-3 text-[16px] font-medium">
                 {slice.primary.eyebrow}
               </span>
             )}
             {isFilled.richText(slice.primary.title) && (
-              <RichText
-                field={slice.primary.title}
-                additionalClassNames="!text-white mb-2"
-              />
+              <RichText field={slice.primary.title} />
             )}
             {isFilled.richText(slice.primary.text) && (
               <RichText
                 field={slice.primary.text}
-                additionalClassNames="text-white !text-xl font-medium mb-12"
+                additionalClassNames="!text-xl font-medium mb-12"
               />
             )}
             {slice.primary.ctas.length > 0 && (
@@ -78,7 +75,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         data-slice-variation={slice.variation}
         className="w-full bg-gradient-to-b from-black via-[#1a0a2e] to-black py-24 px-12 box-border"
       >
-        <div className="mx-auto max-w-480 grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-16 items-center">
+        <div className="mx-auto max-w-480 grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16 items-center">
           {isFilled.image(slice.primary.image) && (
             <div className="w-full rounded-4xl bg-gradient-to-br from-cyan-400 via-purple-500 to-fuchsia-500 p-[8px]">
               <div className="w-full rounded-3xl overflow-hidden bg-(--brand-bg-dark)">
@@ -92,20 +89,17 @@ const Hero: FC<HeroProps> = ({ slice }) => {
 
           <div className="flex flex-col items-start">
             {isFilled.keyText(slice.primary.eyebrow) && (
-              <span className="inline-block bg-(--brand-primary) text-white rounded-full mb-6 px-6 py-3 text-[16px] font-medium">
+              <span className="inline-block bg-(--brand-primary) rounded-full mb-6 px-6 py-3 text-[16px] font-medium">
                 {slice.primary.eyebrow}
               </span>
             )}
             {isFilled.richText(slice.primary.title) && (
-              <RichText
-                field={slice.primary.title}
-                additionalClassNames="!text-white mb-2"
-              />
+              <RichText field={slice.primary.title} />
             )}
             {isFilled.richText(slice.primary.text) && (
               <RichText
                 field={slice.primary.text}
-                additionalClassNames="text-white !text-xl font-medium mb-12"
+                additionalClassNames="!text-xl font-medium mb-12"
               />
             )}
             {slice.primary.ctas.length > 0 && (

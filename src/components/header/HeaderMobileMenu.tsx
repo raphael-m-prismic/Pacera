@@ -47,7 +47,7 @@ export function HeaderMobileMenu({ navigationLinks, ctas, logo }: Props) {
         aria-label="Open menu"
         aria-expanded={isOpen}
         onClick={() => setIsOpen(true)}
-        className="xl:hidden p-2 text-(--brand-text) cursor-pointer"
+        className="xl:hidden p-2 text-[#26262c] cursor-pointer"
       >
         <svg
           width="32"
@@ -86,7 +86,7 @@ export function HeaderMobileMenu({ navigationLinks, ctas, logo }: Props) {
                 type="button"
                 aria-label="Close menu"
                 onClick={() => setIsOpen(false)}
-                className="p-2 text-(--brand-text) cursor-pointer"
+                className="p-2 text-[#26262c] cursor-pointer"
               >
                 <svg
                   width="24"
@@ -115,7 +115,7 @@ export function HeaderMobileMenu({ navigationLinks, ctas, logo }: Props) {
               <button
                 key={i}
                 type="button"
-                className="flex items-center justify-between w-full bg-gray-100 rounded-lg px-4 py-3 text-(--brand-text) font-medium"
+                className="flex items-center justify-between w-full bg-gray-100 rounded-lg px-4 py-3 text-[#26262c] font-medium"
               >
                 <span>{item.label}</span>
                 <svg

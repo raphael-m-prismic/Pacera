@@ -25,7 +25,7 @@
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading1,strong,em"
+            "multi": "heading1"
           }
         },
         "text": {
