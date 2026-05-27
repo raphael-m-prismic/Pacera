@@ -71,7 +71,6 @@
                   "allowText": true,
                   "repeat": false,
                   "allowTargetBlank": true,
-                  "allowDiscriminator": false,
                   "variants": []
                 }
               }

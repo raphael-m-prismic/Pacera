@@ -338,64 +338,49 @@ export type HeaderDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice =
-  | ProductsSlice
-  | CardsSlice
-  | HeroSlice
-  | ContactFormSlice;
+type HomeDocumentDataSlicesSlice = never;
 
 /**
- * Content for Page documents
+ * Content for Home documents
  */
-interface PageDocumentData {
+interface HomeDocumentData {
   /**
-   * Title field in *Page*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: page.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Slice Zone field in *Page*
+   * Slice Zone field in *Home*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
-   * - **API ID Path**: page.slices[]
+   * - **API ID Path**: home.slices[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<PageDocumentDataSlicesSlice>; /**
-   * Meta Title field in *Page*
+  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice>; /**
+   * Meta Title field in *Home*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: page.meta_title
+   * - **Placeholder**: Page title for browser tab and search engines
+   * - **API ID Path**: home.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   meta_title: prismic.KeyTextField;
 
   /**
-   * Meta Description field in *Page*
+   * Meta Description field in *Home*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: page.meta_description
+   * - **Placeholder**: Description for search engines
+   * - **API ID Path**: home.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *Page*
+   * Meta Image field in *Home*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: page.meta_image
+   * - **API ID Path**: home.meta_image
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
@@ -403,18 +388,91 @@ interface PageDocumentData {
 }
 
 /**
- * Page document from Prismic
+ * Home document from Prismic
  *
- * - **API ID**: `page`
+ * - **API ID**: `home`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HomeDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<HomeDocumentData>, "home", Lang>;
+
+type LandingDocumentDataSlicesSlice =
+  | HeroSlice
+  | CardsSlice
+  | ProductsSlice
+  | ContactFormSlice;
+
+/**
+ * Content for Landing documents
+ */
+interface LandingDocumentData {
+  /**
+   * Slice Zone field in *Landing*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<LandingDocumentDataSlicesSlice>; /**
+   * Meta Title field in *Landing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Page title for browser tab and search engines
+   * - **API ID Path**: landing.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Landing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Description for search engines
+   * - **API ID Path**: landing.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Landing*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Landing document from Prismic
+ *
+ * - **API ID**: `landing`
  * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/content-modeling
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type PageDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
+export type LandingDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<LandingDocumentData>,
+    "landing",
+    Lang
+  >;
 
-export type AllDocumentTypes = FooterDocument | HeaderDocument | PageDocument;
+export type AllDocumentTypes =
+  | FooterDocument
+  | HeaderDocument
+  | HomeDocument
+  | LandingDocument;
 
 /**
  * Item in *Cards → Default → Primary → Cards*
@@ -921,9 +979,12 @@ declare module "@prismicio/client" {
       HeaderDocument,
       HeaderDocumentData,
       HeaderDocumentDataNavigationLinksItem,
-      PageDocument,
-      PageDocumentData,
-      PageDocumentDataSlicesSlice,
+      HomeDocument,
+      HomeDocumentData,
+      HomeDocumentDataSlicesSlice,
+      LandingDocument,
+      LandingDocumentData,
+      LandingDocumentDataSlicesSlice,
       AllDocumentTypes,
       CardsSlice,
       CardsSliceDefaultPrimaryCardsItem,
