@@ -15,7 +15,7 @@ export function RichText({ field, components, additionalClassNames }: Props) {
         heading1: ({ children }) => (
             <h1
                 className={clsx(
-                    "mb-5 text-4xl text-(--color-text-primary) md:mb-6",
+                    "mb-5 text-6xl font-semibold text-(--color-text-primary) md:mb-6",
                     additionalClassNames,
                 )}
             >
