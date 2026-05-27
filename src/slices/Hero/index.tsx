@@ -28,7 +28,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         <div className="mx-auto max-w-480 grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16 items-center">
           <div className="flex flex-col items-start">
             {isFilled.keyText(slice.primary.eyebrow) && (
-              <span className="inline-block bg-(--brand-primary) rounded-full mb-6 px-6 py-3 text-[16px] font-medium">
+              <span className="inline-block bg-(--brand-primary) text-white rounded-full mb-6 px-6 py-3 text-[16px] font-medium">
                 {slice.primary.eyebrow}
               </span>
             )}
@@ -89,7 +89,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
 
           <div className="flex flex-col items-start">
             {isFilled.keyText(slice.primary.eyebrow) && (
-              <span className="inline-block bg-(--brand-primary) rounded-full mb-6 px-6 py-3 text-[16px] font-medium">
+              <span className="inline-block bg-(--brand-primary) text-white rounded-full mb-6 px-6 py-3 text-[16px] font-medium">
                 {slice.primary.eyebrow}
               </span>
             )}

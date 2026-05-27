@@ -94,7 +94,7 @@ export function RichText({ field, components, additionalClassNames }: Props) {
             <PrismicNextLink
                 field={node.data}
                 className={clsx(
-                    "text-(--brand-primary) underline",
+                    "text-(--brand-text) underline",
                     additionalClassNames,
                 )}
             >

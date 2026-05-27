@@ -34,7 +34,7 @@ const Cards: FC<CardsProps> = ({ slice }) => {
             {slice.primary.cards.map((card, i) => (
               <div
                 key={i}
-                className="flex flex-col bg-white rounded-3xl p-8 md:p-10"
+                className="flex flex-col bg-white rounded-xl p-8 md:p-10"
               >
                 {isFilled.richText(card.title) && (
                   <RichText
