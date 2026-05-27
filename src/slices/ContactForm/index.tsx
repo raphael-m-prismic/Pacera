@@ -23,7 +23,7 @@ const ContactForm: FC<ContactFormProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="w-full bg-gradient-to-b from-black via-[#1a0a2e] to-black py-16 md:py-24 px-6"
+      className="w-full bg-gradient-to-b from-black via-[#1a0a2e] to-black py-24 px-12"
     >
       <div className="mx-auto max-w-480">
         <div className="rounded-4xl bg-gradient-to-br from-cyan-400 via-purple-500 to-fuchsia-500 p-[2px]">

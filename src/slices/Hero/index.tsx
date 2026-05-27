@@ -23,7 +23,10 @@ const Hero: FC<HeroProps> = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="w-full bg-gradient-to-b from-black via-[#1a0a2e] to-black py-24 px-12 box-border"
+        className="w-full py-24 px-12 box-border bg-cover bg-center"
+        style={{
+          backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0), rgba(0,0,0,0.8)), url('/hero-bg.webp')"
+        }}
       >
         <div className="mx-auto max-w-480 grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16 items-center">
           <div className="flex flex-col items-start">
@@ -73,7 +76,10 @@ const Hero: FC<HeroProps> = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="w-full bg-gradient-to-b from-black via-[#1a0a2e] to-black py-24 px-12 box-border"
+        className="w-full py-24 px-12 box-border bg-cover bg-center"
+        style={{
+          backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0), rgba(0,0,0,0.8)), url('/hero-bg.webp')"
+        }}
       >
         <div className="mx-auto max-w-480 grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16 items-center">
           {isFilled.image(slice.primary.image) && (
