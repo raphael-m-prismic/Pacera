@@ -2,4 +2,8 @@
 
 @theme {
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+
+  --brand-primary: #7c2ae8;
+  --brand-text: #1a1a1a;
+  --gradient-top: linear-gradient(to right, #2dd4bf, #a855f7, #d946ef);
 }

@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en" className={poppins.variable}>
       <body className="font-sans">
         <Header />
-        <main className="pt-20">{children}</main>
+        <main className="pt-24">{children}</main>
       </body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>

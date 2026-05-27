@@ -14,10 +14,10 @@
           "thumbnails": []
         }
       },
-      "links": {
+      "navigation_links": {
         "type": "Group",
         "config": {
-          "label": "Links",
+          "label": "Navigation links",
           "repeat": true,
           "fields": {
             "label": {
@@ -30,16 +30,27 @@
           }
         }
       },
-      "cta": {
+      "ctas": {
         "type": "Link",
         "config": {
-          "label": "Cta",
+          "label": "Ctas",
           "placeholder": "",
           "select": null,
           "allowTargetBlank": true,
           "allowText": true,
           "repeat": true,
           "variants": ["Primary", "Secondary"]
+        }
+      },
+      "top_links": {
+        "type": "Link",
+        "config": {
+          "label": "Top links",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": true
         }
       }
     }

@@ -70,15 +70,15 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 /**
- * Item in *Header → Links*
+ * Item in *Header → Navigation links*
  */
-export interface HeaderDocumentDataLinksItem {
+export interface HeaderDocumentDataNavigationLinksItem {
   /**
-   * Label field in *Header → Links*
+   * Label field in *Header → Navigation links*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: header.links[].label
+   * - **API ID Path**: header.navigation_links[].label
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   label: prismic.KeyTextField;
@@ -100,26 +100,28 @@ interface HeaderDocumentData {
   logo: prismic.ImageField<never>;
 
   /**
-   * Links field in *Header*
+   * Navigation links field in *Header*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: header.links[]
+   * - **API ID Path**: header.navigation_links[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  links: prismic.GroupField<Simplify<HeaderDocumentDataLinksItem>>;
+  navigation_links: prismic.GroupField<
+    Simplify<HeaderDocumentDataNavigationLinksItem>
+  >;
 
   /**
-   * Cta field in *Header*
+   * Ctas field in *Header*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: header.cta
+   * - **API ID Path**: header.ctas
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
-  cta: prismic.Repeatable<
+  ctas: prismic.Repeatable<
     prismic.LinkField<
       string,
       string,
@@ -127,6 +129,19 @@ interface HeaderDocumentData {
       prismic.FieldState,
       "Primary" | "Secondary"
     >
+  >;
+
+  /**
+   * Top links field in *Header*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.top_links
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  top_links: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
   >;
 }
 
@@ -243,7 +258,7 @@ declare module "@prismicio/client" {
     export type {
       HeaderDocument,
       HeaderDocumentData,
-      HeaderDocumentDataLinksItem,
+      HeaderDocumentDataNavigationLinksItem,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
